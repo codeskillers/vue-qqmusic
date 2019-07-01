@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Music from '@/components/Music'
 import Mine from '@/components/Mine'
 import Search from '@/components/Search'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
-    }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
   ]
 })
