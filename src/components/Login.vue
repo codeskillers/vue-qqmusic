@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <div class="box">
+  <div class="box">
     <div class="username">
-       <div class="text-phone">手机号</div>
-       <input type="text" placeholder="请输入手机号" v-model="phone">
+      <!-- <div class="text-phone">手机号</div> -->
+      <el-input v-model="phone" placeholder="请输入手机号"></el-input>
     </div>
     <div class="password">
-      <div class="text-password">密码</div>
-      <input type="password" placeholder="请输入密码" v-model="password">
+      <!-- <div class="text-password">密码</div> -->
+      <el-input type="password" v-model="password" placeholder="请输入密码"></el-input>
     </div>
-    <div class="login" @click="login">登录</div>
+    <el-button class="login" type="primary" @click="login">登录</el-button>
+    <router-link :to="{name:'Register'}" exact>
+      <el-button class="register" type="primary">注册</el-button>
+    </router-link>
   </div>
-  </div>
-  
 </template>
 
 <script>
@@ -22,25 +22,22 @@ export default {
     return {
       phone: '',
       password: '',
-      profile: {},
+      profile: {}, // 包含账号信息(userId)
     }
   },
   methods: {
     login() {
-      console.log(this.phone)
       this.$http.get(`http://neteasecloudmusicapi.zhaoboy.com/login/cellphone?phone=${this.phone}&password=${this.password}`)
       .then(res => {
-        console.log(res.data)
-        // console.log(res)
+        // console.log(res.data)
         if (res.data.code === 200) {
           this.isLogin = true;
           this.profile = res.data.profile;
-          console.log(this.profile)
+          // console.log(this.profile)
           this.$router.push({
             name: 'Mine',
             params: {profile: this.profile}
           })
-          console.log(11122)
         }
       })
       .catch(err => {
@@ -48,38 +45,56 @@ export default {
         this.phone = '';
         this.password = '';
       })
-    }
+    },
+    // register() {
+    //   this.$http.get(`http://neteasecloudmusicapi.zhaoboy.com/register/cellphone?phone=13xxx&password=xxxxx&captcha=1234&nickname=binary1345`)
+    //   .then(res => {
+    //     console.log(res.data)
+    //   })
+    // }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .box{
-  width: 90%;
-  /* height: 150px; */
-  border: 1px solid #cfcfcf;
-  position: absolute;
-  top: 150px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #24b3bd70;
 }
 .username{
-  display: flex;
-  margin-left: 5px;
-   margin-top: 10px;
+  display: block;
+  position: absolute;
+  top: 12rem;
+  left: 5.5rem;
 }
 .password{
-  display: flex;
-  margin-top: 10px;
-   margin-left: 5px;
+  display: block;
+  position: absolute;
+  top: 15rem;
+  left: 5.5rem;
 }
-input{
-  margin-left: 10px;
+.register{
+  border-radius: 5px;
+  position: absolute;
+  top: 19rem;
+  left: 12rem;
 }
 .login{
-  border: 1px solid #000;
-  width: 50px;
-  height: 24px;
   border-radius: 5px;
-  text-align: center;
-  margin: 10px auto 10px;
+  position: absolute;
+  top: 19rem;
+  left: 6rem;
 }
+/* .text-phone {
+  width: 4rem;
+  text-align: center;
+  padding-top: 0.6rem;
+}
+.text-password {
+  width: 4rem;
+  text-align: center;
+  padding-top: 0.6rem;
+} */
 </style>

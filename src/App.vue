@@ -10,10 +10,12 @@ import TarBar from './components/TabBar/tabbar'
 export default {
   name: 'App',
   data () {
+    return {
 
+    }
   },
   components: {
-    TarBar
+    TarBar,
   }
 }
 </script>
