@@ -45,38 +45,38 @@ export default {
     this.history = history
     console.log('history',this.history);
     this.$nextTick(() => {  // 保证html渲染
-      // this._initScroll()
-      this.personScroll();
+      this._initScroll()
+      // this.personScroll();
     })
     console.log('scroll')
   },
   methods: {
-    personScroll() {
-      // 默认有3个li子元素，每个子元素的宽度为120px
-      // let height = 300;
-      // this.$refs.musicBox.style.height = height + "rem";
-      // this.$nextTick 是一个异步函数，为了确保 DOM 已经渲染
-      this.$nextTick(() => {
-        if (!this.scroll) {
-          this.scroll = new BScroll(this.$refs.listContainer, {
-            startY: 0,
-            click: true,
-            scrollX: false,
-            scrollY: true,
-            // eventPassthrough: "vertical"
-          });
-        } else {
-          // 如果子元素或者父元素 DOM 结构发生改变的时候，必须重新调用 scroll.refresh() 方法重新计算来确保滚动效果的正常
-          this.scroll.refresh();
-        }
-      });
-    },
+    // personScroll() {
+    //   // 默认有3个li子元素，每个子元素的宽度为120px
+    //   // let height = 300;
+    //   // this.$refs.musicBox.style.height = height + "rem";
+    //   // this.$nextTick 是一个异步函数，为了确保 DOM 已经渲染
+    //   this.$nextTick(() => {
+    //     if (!this.scroll) {
+    //       this.scroll = new BScroll(this.$refs.listContainer, {
+    //         startY: 0,
+    //         click: true,
+    //         scrollX: false,
+    //         scrollY: true,
+    //         // eventPassthrough: "vertical"
+    //       });
+    //     } else {
+    //       // 如果子元素或者父元素 DOM 结构发生改变的时候，必须重新调用 scroll.refresh() 方法重新计算来确保滚动效果的正常
+    //       this.scroll.refresh();
+    //     }
+    //   });
+    // },
 
      _initScroll () {
       this.musicBox = new BScroll(this.$refs.musicBox, {
         click: true,
-        scrollY: true,
-        scrollX: false,
+        // scrollY: true,
+        // scrollX: false,
         probetype: 3
       })
     },
@@ -142,7 +142,6 @@ export default {
 }
 .musicBox{
   width: 100%;
-  height: 45rem;
 }
 .lists{
   width: 100%;

@@ -92,7 +92,7 @@ export default {
     "HistoryMusic": historyMusic,
     "Download": download,
     "Station": station,
-    "Collect": collect
+    "Collect": collect,
   },
   methods: {
     collect(){
@@ -114,6 +114,11 @@ export default {
 </script>
 
 <style>
+.mine{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .userInfo{
   width: 100%;
   height: 10rem;

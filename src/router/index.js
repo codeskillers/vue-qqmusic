@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Music from '@/components/Music'
+import Music from '@/components/Music/Music'
 import Mine from '@/components/Mine'
 import Search from '@/components/Search'
 import Login from '@/components/Login'

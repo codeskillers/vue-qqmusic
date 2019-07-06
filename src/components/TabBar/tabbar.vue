@@ -57,8 +57,13 @@ export default {
 <style>
 .tabBar {
   display: flex;
-  width: 100%;
+  width: 98%;
+  height: 3rem;
   font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  padding: 2px;
+  border-top: 1px solid #cfcfcf;
 }
 .tab-item {
   flex: 1;
