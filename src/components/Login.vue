@@ -12,6 +12,7 @@
     <router-link :to="{name:'Register'}" exact>
       <el-button class="register" type="primary">注册</el-button>
     </router-link>
+    
   </div>
 </template>
 
@@ -62,6 +63,10 @@ export default {
   height: 100%;
   text-align: center;
   background-color: #24b3bd70;
+  z-index: 99;
+  position: absolute;
+  bottom: 0;
+  top: 0;
 }
 .username{
   display: block;

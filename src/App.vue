@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TarBar class="footer"></TarBar>
+    <TarBar></TarBar>
     <router-view/>
   </div>
 </template>
@@ -35,11 +35,5 @@ html,body {
 #app {
     width: 100%;
     height: 100%
-}
-.footer{
-  position: absolute;
-  bottom: 0;
-  padding: 2px;
-  border-top: 1px solid #cfcfcf;
 }
 </style>
