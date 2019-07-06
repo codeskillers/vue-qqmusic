@@ -6,6 +6,7 @@ import Search from '@/components/Search'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import HistoryMusic from '@/components/HistoryMusic'
+import Player from '@/components/player'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
       path: '/historyMusic',
       name: 'HistoryMusic',
       component: HistoryMusic
+    },
+    {
+      path: '/player',
+      name: 'Player',
+      component: Player
     },
   ]
 })
