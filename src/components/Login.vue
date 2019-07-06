@@ -12,6 +12,7 @@
     <router-link :to="{name:'Register'}" exact>
       <el-button class="register" type="primary">注册</el-button>
     </router-link>
+     <TarBar class="footer"></TarBar>
   </div>
 </template>
 
