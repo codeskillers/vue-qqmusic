@@ -1,11 +1,13 @@
 <template>
    <div class="musicWrapper">
      <MusicNav />
+     <Search />
    </div>
 </template>
 
 <script>
-import MusicNav from './Child/musicNav'
+import MusicNav from './Child/musicNav';
+import Search from './Child/search';
 export default {
      data() {
        return {
@@ -13,7 +15,8 @@ export default {
        }
      },
      components: {
-       MusicNav
+       MusicNav,
+       Search
      }
 }
 </script>

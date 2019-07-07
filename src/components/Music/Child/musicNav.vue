@@ -16,7 +16,7 @@ export default {
           tab:[
             {
               name:'推荐',
-              isActive: false
+              isActive: true
             },
              {
               name:'歌手',
@@ -78,7 +78,7 @@ export default {
    display: block;
    position: absolute;
    border-top: 3px solid #31C27C;
-   top: 1.7rem;
+   top: 1.8rem;
    left: 1.78rem;
 }
 </style>
