@@ -1,8 +1,8 @@
 <template>
    <div class="tabWrapper">
        <ul class="tab">
-       <li v-for="(tabItem, index) in tab" :key="index" class="tab-item" :class="[tabItem.isActive ? activeClass : nactiveClass]"
-        @click="switchTab(index)"
+       <li tag="li" v-for="(tabItem, index) in tab" :key="index" class="tab-item" :class="[tabItem.isActive ? activeClass : nactiveClass]"
+        @click="switchTab(index,tabItem)"
        >
          {{tabItem.name}}</li>
      </ul>
@@ -16,18 +16,22 @@ export default {
           tab:[
             {
               name:'推荐',
+              path:'/music/recommend',
               isActive: true
             },
              {
               name:'歌手',
+              path: '/music/singer',
               isActive: false
             },
              {
               name:'排行',
+              path: '/music/list',
               isActive: false
             },
              {
-              name:'播放',
+              name:'搜索',
+              path: '/music/search',
               isActive: false
             }
           ],
@@ -40,6 +44,7 @@ export default {
           for(let i in this.tab){
             if(index==i){
               this.tab[i].isActive = true;
+              this.$router.push({path: this.tab[i].path})
             } else {
               this.tab[i].isActive = false;
             }

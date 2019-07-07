@@ -1,22 +1,20 @@
 <template>
    <div class="musicWrapper">
      <MusicNav />
-     <Search />
+     <router-view></router-view>
    </div>
 </template>
 
 <script>
 import MusicNav from './Child/musicNav';
-import Search from './Child/search';
 export default {
      data() {
        return {
           
        }
      },
-     components: {
-       MusicNav,
-       Search
+     components:{
+       MusicNav
      }
 }
 </script>
