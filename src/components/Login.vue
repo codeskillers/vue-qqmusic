@@ -26,6 +26,11 @@ export default {
       profile: {}, // 包含账号信息(userId)
     }
   },
+  props: {
+    show: {
+      type: Boolean
+    }
+  },
   methods: {
     login() {
       this.$http.get(`http://neteasecloudmusicapi.zhaoboy.com/login/cellphone?phone=${this.phone}&password=${this.password}`)
@@ -37,7 +42,7 @@ export default {
           // console.log(this.profile)
           this.$router.push({
             name: 'Mine',
-            params: {profile: this.profile}
+            params: {profile: this.profile,}
           })
         }
       })
@@ -47,12 +52,17 @@ export default {
         this.password = '';
       })
     },
+    
     // register() {
     //   this.$http.get(`http://neteasecloudmusicapi.zhaoboy.com/register/cellphone?phone=13xxx&password=xxxxx&captcha=1234&nickname=binary1345`)
     //   .then(res => {
     //     console.log(res.data)
     //   })
     // }
+  },
+  created() {
+    this.show = false
+    console.log(this.show)
   }
 }
 </script>

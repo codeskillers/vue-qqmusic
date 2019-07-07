@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TarBar></TarBar>
+    <TarBar :class="show ? 'show' : 'hidden' " :show='show'></TarBar>
     <router-view/>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data () {
     return {
-
+      show: true,
     }
   },
   components: {
@@ -35,5 +35,11 @@ html,body {
 #app {
     width: 100%;
     height: 100%
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
 }
 </style>
