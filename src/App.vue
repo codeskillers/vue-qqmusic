@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <TarBar :class="show ? 'show' : 'hidden' " :show='show'></TarBar>
+    <NavBar></NavBar>
+    <TarBar></TarBar>
     <router-view/>
   </div>
 </template>
 
 <script>
-import TarBar from './components/TabBar/tabbar'
+import TarBar from './components/TabBar/tabbar';
+import NavBar from './components/NavBar/navbar';
 export default {
   name: 'App',
   data () {
@@ -15,7 +17,8 @@ export default {
     }
   },
   components: {
-    TarBar,
+    NavBar,
+    TarBar
   }
 }
 </script>

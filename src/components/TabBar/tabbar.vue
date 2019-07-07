@@ -7,11 +7,11 @@
           <div :class="{bottomBarColorActive:isColor1}">音乐馆</div>
         </router-link>
       </div>
-      <div class="tab-item" @click="toSearch">
-        <router-link class="router-link" :to="{name:'Search'}" exact> 
+      <div class="tab-item" @click="toPlaying">
+        <router-link class="router-link" :to="{name:'Playing'}" exact> 
           <img class="img" v-if="isColor2" src="./images/play-active.png" alt="">
           <img class="img" v-else src="./images/play.png" alt="">
-          <div :class="{bottomBarColorActive:isColor2}">发现</div>
+          <div :class="{bottomBarColorActive:isColor2}">播放</div>
         </router-link>
       </div>
       <div class="tab-item" @click="toMine">
@@ -40,7 +40,7 @@ export default {
       this.isColor2 = false;
       this.isColor3 = false;
     },
-    toSearch () {
+    toPlaying () {
       this.isColor1 = false;
       this.isColor2 = true;
       this.isColor3 = false;
