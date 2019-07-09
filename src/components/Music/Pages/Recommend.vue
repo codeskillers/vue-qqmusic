@@ -1,15 +1,19 @@
 <template>
     <div>
-        {{msg}}
+       <Vueawesomeswiper />
     </div>
 </template>
 
 <script>
+import Vueawesomeswiper from '../Child/swiper';
 export default {
      data() {
          return {
-            msg: "recommend"
+            
          }
+     },
+     components: {
+         Vueawesomeswiper
      }
 }
 </script>
