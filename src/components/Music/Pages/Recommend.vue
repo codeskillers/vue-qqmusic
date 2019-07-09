@@ -1,19 +1,33 @@
 <template>
     <div>
-       <Vueawesomeswiper />
+       <Swiperhome />
     </div>
 </template>
 
 <script>
-import Vueawesomeswiper from '../Child/swiper';
+import Swiperhome from '../Child/swiper';
 export default {
      data() {
          return {
-            
+             recoMv: [],
+             id: []
          }
      },
+     created(){
+        this.$http.get('http://neteasecloudmusicapi.zhaoboy.com/personalized')
+        .then(res =>{
+            console.log('recommend',res);
+            this.recoMv = res.data.result;
+            this.id = this.recoMv[0].id
+            // resolve(id)
+            console.log(id);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+     },
      components: {
-         Vueawesomeswiper
+         Swiperhome
      }
 }
 </script>
