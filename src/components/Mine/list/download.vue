@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="station-box">
-      <img src="../../images/mine/station.png" alt="" class="load">
-      <div class="station">我的电台</div>
+    <div class="download-box">
+      <img src="../../../images/mine/download.png" alt="" class="load">
+      <div class="download">下载管理</div>
     </div>
   </div>
 </template>
@@ -14,17 +14,17 @@ export default {
 </script>
 
 <style>
-.station-box {
+.download-box {
   width: 100%;
   height: 3.5rem;
   border-bottom: 1px solid #cfcfcf;
 }
-.station-box img{
+.download-box img{
   vertical-align: middle;
   margin-top: 0.8rem;
   margin-left: 1.5rem;
 }
-.station {
+.download {
   display: inline-block;
   vertical-align: middle;
   margin-top: 0.8rem;

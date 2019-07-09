@@ -7,13 +7,18 @@
         <div class="clear">清空</div>
       </div>
       <div class="tabs">
-        <div class="tab" :class="isActive1 ? 'active': '' ">歌曲 <span class="mini-font">({{history.length}})</span></div>
-        <div class="tab" :class="isActive2 ? 'active': '' ">直播</div>
-        <div class="tab" :class="isActive3 ? 'active': '' ">视频</div>
+        <div class="tab" :class="isActive1 ? 'active': '' ">歌曲 
+          <span class="mini-font">({{history.length}})</span>
+        </div>
+        <div class="tab" :class="isActive2 ? 'active': '' ">直播
+
+        </div>
+        <div class="tab" :class="isActive3 ? 'active': '' ">视频
+
+        </div>
       </div>
     </div>
    
-    <!-- todo -->
     <div class="list-container" ref="listContainer">
       <div class="musicBox" ref="musicBox">
         <div class="lists" v-for="(item, index) in history" :key="index">
@@ -46,34 +51,12 @@ export default {
     console.log('history',this.history);
     this.$nextTick(() => {  // 保证html渲染
       this._initScroll()
-      // this.personScroll();
     })
     console.log('scroll')
   },
   methods: {
-    // personScroll() {
-    //   // 默认有3个li子元素，每个子元素的宽度为120px
-    //   // let height = 300;
-    //   // this.$refs.musicBox.style.height = height + "rem";
-    //   // this.$nextTick 是一个异步函数，为了确保 DOM 已经渲染
-    //   this.$nextTick(() => {
-    //     if (!this.scroll) {
-    //       this.scroll = new BScroll(this.$refs.listContainer, {
-    //         startY: 0,
-    //         click: true,
-    //         scrollX: false,
-    //         scrollY: true,
-    //         // eventPassthrough: "vertical"
-    //       });
-    //     } else {
-    //       // 如果子元素或者父元素 DOM 结构发生改变的时候，必须重新调用 scroll.refresh() 方法重新计算来确保滚动效果的正常
-    //       this.scroll.refresh();
-    //     }
-    //   });
-    // },
-
      _initScroll () {
-      this.musicBox = new BScroll(this.$refs.musicBox, {
+      this.listContainer = new BScroll(this.$refs.listContainer, {
         click: true,
         // scrollY: true,
         // scrollX: false,
@@ -134,9 +117,9 @@ export default {
 }
 .list-container{
   width: 100%;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   position: absolute;
-  top: 6rem;
+  top: 9rem;
   bottom: 3.5rem;
   overflow: hidden;
 }
@@ -146,5 +129,6 @@ export default {
 .lists{
   width: 100%;
   padding: 0.4rem 0 0.4rem 0;
+  border-bottom: 1px solid #cfcfcf;
 }
 </style>
