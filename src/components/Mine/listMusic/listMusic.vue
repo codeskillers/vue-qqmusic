@@ -2,7 +2,7 @@
   <div class="music">
     <div class="music-left">
       <div class="title">{{song.song.name}}</div>
-      <div class="singer">{{song.song.song.artists[0].name}}</div>
+      <div class="singer">{{song.song.ar[0].name}}</div>
     </div>
     <div class="music-right">
       <div class="player" @click="play">
@@ -35,7 +35,7 @@ export default {
     play() {
       console.log('song',this.song);
       this.$router.push({
-        name: 'Player',
+        name: 'Playing',
         params: {song: this.song}
       })
     }
@@ -61,6 +61,7 @@ export default {
 }
 .music-right{
   float: right;
+  padding-top: 0.5rem;
 }
 .player{
   display: inline-block;

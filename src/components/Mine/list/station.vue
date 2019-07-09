@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="loadMusic-box">
-      <img src="../../images/mine/music.png" alt="" class="load">
-      <div class="loadMusiv">本地音乐</div>
+    <div class="station-box">
+      <img src="../../../images/mine/station.png" alt="" class="load">
+      <div class="station">我的电台</div>
     </div>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -14,17 +14,17 @@ export default {
 </script>
 
 <style>
-.loadMusic-box {
+.station-box {
   width: 100%;
   height: 3.5rem;
   border-bottom: 1px solid #cfcfcf;
 }
-.loadMusic-box img{
+.station-box img{
   vertical-align: middle;
   margin-top: 0.8rem;
   margin-left: 1.5rem;
 }
-.loadMusiv {
+.station {
   display: inline-block;
   vertical-align: middle;
   margin-top: 0.8rem;

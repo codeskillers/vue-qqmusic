@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="historyMusic-box">
-      <img src="../../images/mine/play.png" alt="" class="load">
+      <img src="../../../images/mine/play.png" alt="" class="load">
       <div class="historyMusic">最近播放 ({{playMount}})</div>
     </div>
   </div>
@@ -20,6 +20,9 @@ export default {
       type: Number
     }
   },
+  mounted() {
+    console.log('playMount', this.playMount)
+  }
 }
 </script>
 

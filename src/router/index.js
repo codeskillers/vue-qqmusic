@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Music from '@/components/Music/Music'
-import Mine from '@/components/Mine'
+import Mine from '@/components/Mine/Mine'
 import Playing from '@/components/Playing'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
-import HistoryMusic from '@/components/HistoryMusic'
-import Player from '@/components/player'
+import Login from '@/components/Mine/Login'
+import Register from '@/components/Mine/Register'
+import HistoryMusic from '@/components/Mine/HistoryMusic'
 import Recommend from '@/components/Music/Pages/Recommend'
 import Singer from '@/components/Music/Pages/Singer'
 import Search from '@/components/Music/Pages/Search'
@@ -54,29 +53,24 @@ export default new Router({
       component: Mine
     },
     {
-      path: '/playing',
-      name: 'Playing',
-      component: Playing
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register
-    },
-    {
-      path: '/historyMusic',
+      path: 'historyMusic', 
       name: 'HistoryMusic',
       component: HistoryMusic
     },
     {
-      path: '/player',
-      name: 'Player',
-      component: Player
+      path: 'login', 
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: 'register', 
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/playing',
+      name: 'Playing',
+      component: Playing
     },
   ]
 })
