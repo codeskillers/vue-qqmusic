@@ -49,11 +49,6 @@ export default new Router({
       ]
     },
     {
-      path: '/musci',
-      name: 'Music',
-      component: Music
-    },
-    {
       path: '/mine',
       name: 'Mine',
       component: Mine
