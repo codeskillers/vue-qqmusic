@@ -1,12 +1,14 @@
 <template>
    <div class="musicWrapper">
      <MusicNav />
+     <TarBar></TarBar>
      <router-view></router-view>
    </div>
 </template>
 
 <script>
 import MusicNav from './Child/musicNav';
+import TarBar from '../TabBar/tabbar'
 export default {
      data() {
        return {
@@ -14,7 +16,8 @@ export default {
        }
      },
      components:{
-       MusicNav
+       MusicNav,
+       TarBar
      }
 }
 </script>

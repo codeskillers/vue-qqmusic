@@ -22,8 +22,8 @@
       <div @click="collect">
          <Collect />
       </div>
-     
     </div>
+    <TarBar></TarBar>
     <router-view/>
   </div>
 </template>
@@ -34,6 +34,7 @@ import historyMusic from './list/historyMusic'
 import download from './list/download'
 import station from './list/station'
 import collect from './list/collect'
+import TarBar from '../TabBar/tabbar'
 export default {
   name: 'mine',
   data () {
@@ -94,6 +95,7 @@ export default {
     "Download": download,
     "Station": station,
     "Collect": collect,
+    TarBar
   },
   methods: {
     collect(){

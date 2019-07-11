@@ -10,30 +10,36 @@
       <div class="sing-show">
         <img src="../images/playing/stick.png" class="stick" >
         <img src="../images/playing/disk.png" class="disk" />
-        <!-- <img src="../imgs/playing/stick.png" class="coverImgStick" />
-        <img src="../images/playing/disk.png" class="coverImgBg" /> -->
-        <!-- <image src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" /> -->
+        <!-- <img src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" /> -->
       </div>
-      <div>
-        <!-- <button type="primary" bindtap="handleToggleBGAudio">{{isPlay ? '暂停' : '播放'}}</button> -->
-      </div>
+      <!-- <div>  
+        <img v-if="isPlay" src="../images/playing/pause.png" alt="">
+        <img v-else src="../images/playing/play.png" alt="">
+        <button type="primary" bindtap="handleToggleBGAudio">{{isPlay ? '暂停' : '播放'}}</button>
+      </div> -->
+      <div class="words"></div>
     </div>
+    <Player :isPlay='isPlay' />
   </div>
 </template>
 
 <script>
+import Player from './Player/player'
 export default {
   name: 'palying',
   data() {
     return {
       isPlay: false,
-      songInfo: {}
+      songInfo: {},
     }
   },
   props: {
     song: {
       type: Object
     }
+  },
+  components: {
+    Player
   },
   created() {
     this.songInfo = this.$route.params.song.song
@@ -69,7 +75,7 @@ export default {
   /* position: relative; */
   width: 98%;
   top: 7rem;
-  bottom: 0rem;
+  bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,13 +85,15 @@ export default {
   height: 8rem;
   position: absolute;
   top: 2rem;
-  left: 8rem;
+  left: 9.5rem;
   z-index: 99;
 }
 .disk{
+  z-index: -1;
   width: 20rem;
   height: 20rem;
   position: absolute;
+  top: 7.5rem;
 }
 .coverImgStick {
   position: absolute;
@@ -112,6 +120,13 @@ export default {
 }
 .coverImg.play {
   animation: rotate 15s linear infinite;
+}
+.words{
+  width: 100%;
+  height: 2.5rem;
+  position: absolute;
+  top: 38rem;
+  overflow: hidden;
 }
 @keyframes rotate {
   0% {

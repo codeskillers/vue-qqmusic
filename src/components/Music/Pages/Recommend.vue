@@ -10,7 +10,7 @@ export default {
      data() {
          return {
              recoMv: [],
-             id: []
+             id: [],
          }
      },
      created(){
@@ -18,9 +18,13 @@ export default {
         .then(res =>{
             console.log('recommend',res);
             this.recoMv = res.data.result;
-            this.id = this.recoMv[0].id
+            let ids = this.recoMv[0].id
             // resolve(id)
-            console.log(id);
+            console.log(ids);
+            return ids
+        })
+        .then(res => {
+            console.log(res)
         })
         .catch(err => {
             console.log(err);
