@@ -42,10 +42,11 @@ export default {
 
 <style scoped>
 .player{
-  width: 98%;
+  background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+  width: 100%;
   position: absolute;
   bottom: 0;
-  border: 1px solid #000;
+  border-top: 1px solid #cfcfcf;
   display: flex;
   text-align: center;
   height: 5rem;

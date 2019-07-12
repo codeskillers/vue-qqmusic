@@ -8,8 +8,9 @@
         </div>
       </div>
       <div class="sing-show">
-        <img src="../images/playing/stick.png" class="stick" >
+        <img src="../images/playing/stick.png" class="stick" :class="isPlay ? 'rotate': '' " />
         <img src="../images/playing/disk.png" class="disk" />
+        <img :src="songInfo.al.picUrl" alt="" class="music" :class="isPlay ? 'play': '' " />
         <!-- <img src="{{song.al.picUrl}}" class="coverImg {{isPlay ? 'play' : ''}}" /> -->
       </div>
       <!-- <div>  
@@ -19,18 +20,23 @@
       </div> -->
       <div class="words"></div>
     </div>
-    <Player :isPlay='isPlay' />
+    <Player :isPlay='isPlay' @isPlay='getIsPlay' />
+    <audio :src=musicUrl id="music"></audio>
   </div>
 </template>
 
 <script>
-import Player from './Player/player'
+import Player from './Player/player';
+import { getMusicUrl } from '../api/index'
+import { resolve } from 'q';
 export default {
   name: 'palying',
   data() {
     return {
       isPlay: false,
       songInfo: {},
+      musicId: null,
+      musicUrl: ''
     }
   },
   props: {
@@ -41,15 +47,66 @@ export default {
   components: {
     Player
   },
+  methods: {
+    getMusic() {
+      return new Promise( (resolve, reject) => {
+        let res = getMusicUrl(this.musicId);
+        res.then(res => {
+          // a = res;
+          // console.log(res,'a',a)
+          resolve(res)
+          console.log('res', res)
+        })
+      })
+      // return a;
+    },
+    getIsPlay(value) {
+      console.log(value);
+      this.isPlay = value;
+      // todo 
+      let audio = document.getElementById('music');
+      let src = audio.src;
+      // console.log(/\.mp3$/.test(src)); // 判断后缀是否为.MP3格式
+      // if(/\.mp3$/.test(src)) {
+        
+      // } else {
+
+      // }
+      if(audio) {
+          console.log(this.isPlay);
+          if(this.isPlay) {
+            audio.currentTime = 0;
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        }
+    }
+  },
   created() {
-    this.songInfo = this.$route.params.song.song
-    console.log('created', this.$route.params.song.song)
+    console.log(1)
+    this.songInfo = this.$route.params.song.song;
+    this.musicId = this.songInfo.id;
+    this.getMusic().then( res => {
+      this.musicUrl = res.data[0].url
+      // console.log(this.musicUrl)
+    })
+    if(!this.getIsPlay){
+      console.log('!getIsPlay','123');
+
+    } else {
+      console.log('getIsPlay')
+    }
+  },
+  updated() {
+    console.log('updated')
   }
 };
 </script>
 
 <style scoped>
 .body{
+    background: linear-gradient(to right, #4cb8c4, #3cd3ad);
   width: 100%;
   position: absolute;
   top: 3.5rem;
@@ -70,7 +127,6 @@ export default {
   margin-top: 1rem;
 }
 .sing-show {
-  border: 1px solid #000;
   position: absolute;
   /* position: relative; */
   width: 98%;
@@ -84,42 +140,31 @@ export default {
   width: 8rem;
   height: 8rem;
   position: absolute;
-  top: 2rem;
-  left: 9.5rem;
+  top: 1.5rem;
+  left: 10.5rem;
   z-index: 99;
+  transform: translate(-15%, 0%) rotate(8deg);
 }
+/* .stick.rotate{
+  transform: translate(-15%, 0%) rotate(8deg);
+} */
 .disk{
-  z-index: -1;
+  z-index: 0;
   width: 20rem;
   height: 20rem;
   position: absolute;
   top: 7.5rem;
-}
-.coverImgStick {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  width: 100px;
-  height: 130px;
-  transform: translate(-20%, -50%) rotate(-20deg);
-}
-.coverImgBg {
-  z-index: -1;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 500rpx;
-  height: 500rpx;
   border-radius: 50%;
 }
-.coverImg {
-  width: 400rpx;
-  height: 400rpx;
+.music{
+  width: 15rem;
+  height: 15rem;
+  position: absolute;
+  top: 10rem;
   border-radius: 50%;
 }
-.coverImg.play {
-  animation: rotate 15s linear infinite;
+.music.play{
+   animation: rotate 15s linear infinite;
 }
 .words{
   width: 100%;
